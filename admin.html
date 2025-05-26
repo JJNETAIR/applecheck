@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Admin - APPLE WIFI</title>
+    <style>
+        body { font-family: Arial; text-align: center; padding: 2em; background: #f2f2f2; }
+        input, select, button { font-size: 1.2em; margin: 1em; padding: 0.5em; width: 90%; max-width: 400px; }
+        .message { font-size: 1.2em; color: blue; }
+    </style>
+</head>
+<body>
+    <h1>Admin Panel - APPLE WIFI</h1>
+    <form method="POST">
+        <input type="text" name="code" placeholder="Voucher Code" required />
+        <br />
+        <input type="date" name="start_date" required />
+        <br />
+        <select name="type">
+            <option value="15">15 Days</option>
+            <option value="30">30 Days</option>
+        </select>
+        <br />
+        <button type="submit">Add Voucher</button>
+    </form>
+    {% if message %}<div class="message">{{ message }}</div>{% endif %}
+</body>
+</html>

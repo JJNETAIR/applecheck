@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>APPLE WIFI - Voucher Check</title>
+    <style>
+        body { font-family: Arial; text-align: center; padding: 2em; background: #f9f9f9; }
+        input, select, button { font-size: 1.5em; margin: 1em; padding: 0.5em; width: 90%; max-width: 400px; }
+        .valid { color: green; font-size: 1.5em; }
+        .invalid { color: red; font-size: 1.5em; }
+    </style>
+</head>
+<body>
+    <h1>APPLE WIFI</h1>
+    <h2>Voucher Validity Check</h2>
+    <form method="POST">
+        <input type="text" name="code" placeholder="Enter your voucher code" required />
+        <br />
+        <button type="submit">Check</button>
+    </form>
+    {% if result %}
+        {% if result.valid %}
+            <div class="valid">✔ Valid until {{ result.end_date }} ({{ result.remaining_days }} days left)</div>
+        {% else %}
+            <div class="invalid">✖ Invalid or expired code</div>
+        {% endif %}
+    {% endif %}
+</body>
+</html>
