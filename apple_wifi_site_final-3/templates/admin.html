@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin - APPLE WIFI</title>
+    <style>
+        body { font-family: -apple-system; padding: 20px; }
+        form, table { margin: 20px 0; }
+        input, select { padding: 10px; font-size: 1em; }
+    </style>
+</head>
+<body>
+    <h1>Admin Page - APPLE WIFI</h1>
+    <form method="POST" action="/add">
+        <input name="code" placeholder="Code" required>
+        <input type="date" name="start_date" required>
+        <select name="type">
+            <option value="15">15 Days</option>
+            <option value="30">30 Days</option>
+        </select>
+        <button type="submit">Add</button>
+    </form>
+    <form method="POST" action="/upload" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".csv">
+        <button type="submit">Upload CSV</button>
+    </form>
+    <a href="/logout">Logout</a>
+</body>
+</html>

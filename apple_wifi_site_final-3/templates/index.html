@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>APPLE WIFI</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; text-align: center; padding: 40px; }
+        input, button { font-size: 1.5em; padding: 10px; }
+        .result { font-size: 1.2em; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>APPLE WIFI Voucher Check</h1>
+    <form method="POST">
+        <input type="text" name="code" placeholder="Enter Voucher Code" required>
+        <button type="submit">Check</button>
+    </form>
+    {% if result %}
+        <div class="result">
+            {% if result.valid %}
+                <p style="color:green;">Valid - Expires on {{ result.expiry }}</p>
+                <p>{{ result.remaining }} days remaining</p>
+            {% else %}
+                <p style="color:red;">Invalid - {{ result.message }}</p>
+            {% endif %}
+        </div>
+    {% endif %}
+</body>
+</html>
