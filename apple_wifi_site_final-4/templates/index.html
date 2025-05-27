@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>APPLE WIFI Voucher Check</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>APPLE WIFI</h1>
+        <h2>Voucher Validity Check</h2>
+        <form method="POST">
+            <input type="text" name="code" placeholder="Enter voucher code" required>
+            <button type="submit">Check</button>
+        </form>
+        {% if result %}
+            {% if result.valid %}
+                <p class="valid">✅ Valid until {{ result.end_date }} ({{ result.remaining }} days left)</p>
+            {% elif result.error %}
+                <p class="invalid">❌ {{ result.error }}</p>
+            {% endif %}
+        {% endif %}
+    </div>
+</body>
+</html>

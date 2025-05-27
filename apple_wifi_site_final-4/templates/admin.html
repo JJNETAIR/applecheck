@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Panel - APPLE WIFI</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Admin Panel - APPLE WIFI</h1>
+        {% if not logged_in %}
+        <form method="POST">
+            <input type="password" name="password" placeholder="Enter admin password" required>
+            <button type="submit">Login</button>
+        </form>
+        {% if error %}
+            <p class="invalid">{{ error }}</p>
+        {% endif %}
+        {% else %}
+        <form method="POST" action="/update_voucher">
+            <input type="text" name="code" placeholder="Voucher code" required>
+            <input type="date" name="start_date" required>
+            <select name="type">
+                <option>15 days</option>
+                <option>30 days</option>
+            </select>
+            <button type="submit">Update Voucher</button>
+        </form>
+        {% endif %}
+    </div>
+</body>
+</html>
