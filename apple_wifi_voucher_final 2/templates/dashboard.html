@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Dashboard - APPLE WIFI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h2>Admin Dashboard</h2>
+    <form action="/add" method="POST">
+      <input type="text" name="code" placeholder="Voucher Code" required>
+      <input type="date" name="start_date" required>
+      <select name="duration">
+        <option value="15">15 Days</option>
+        <option value="30">30 Days</option>
+      </select>
+      <button type="submit">Add/Update</button>
+    </form>
+    <hr>
+    <form action="/upload_csv" method="POST" enctype="multipart/form-data">
+      <input type="file" name="csv_file" accept=".csv" required>
+      <button type="submit">Upload CSV</button>
+    </form>
+    <hr>
+    <h3>All Vouchers</h3>
+    <ul>
+      {% for v in vouchers %}
+        <li>{{ v.code }} - {{ v.start_date }} - {{ v.duration_days }} days</li>
+      {% endfor %}
+    </ul>
+  </div>
+</body>
+</html>
