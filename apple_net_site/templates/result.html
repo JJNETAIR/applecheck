@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Voucher Result</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <h1>Result for Code: {{ code }}</h1>
+  {% if error %}
+    <p>{{ error }}</p>
+  {% elif valid %}
+    <p style="color:green;">Valid until {{ valid_until }} ({{ days }} days)</p>
+  {% else %}
+    <p style="color:red;">Invalid or Expired</p>
+  {% endif %}
+  <a href="/">Back</a>
+</body>
+</html>

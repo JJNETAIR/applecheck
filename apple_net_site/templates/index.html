@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>APPLE WIFI - Voucher Check</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <h1>APPLE WIFI</h1>
+  <h2>Check Voucher Validity</h2>
+  <form method="post" action="/check">
+    <input type="text" name="code" placeholder="Enter Voucher Code" required>
+    <button type="submit">Check</button>
+  </form>
+</body>
+</html>
